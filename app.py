@@ -43,6 +43,7 @@ class Message(db.Model):
 
 # 初始化資料庫
 with app.app_context():
+    db.reflect()
     db.create_all()
 
 @login_manager.user_loader
