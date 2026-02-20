@@ -59,5 +59,10 @@ def delete_message(message_id):
 def about():
     return render_template('about.html')
 
+import os
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    # 讀取環境變數中的 PORT，如果沒有則預設使用 5000
+    port = int(os.environ.get('PORT', 5000))
+    # 設定 host='0.0.0.0' 才能讓外部連線
+    app.run(host='0.0.0.0', port=port)
